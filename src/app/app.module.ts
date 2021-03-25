@@ -8,15 +8,17 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
 import { DetailComponent } from './detail/detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
       MenuComponent,
       FooterComponent,
       HomeComponent,
       SearchComponent,
-      DetailComponent
+      DetailComponent,
+      NotFoundComponent
    ],
   imports: [
     BrowserModule,

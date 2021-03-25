@@ -6,13 +6,13 @@
         <div class="navbar">
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Búsqueda</a>
+                    <a class="nav-link" routerLink="/search" routerLinkActive="active">Búsqueda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn-upload" href="#">Subir nuevo</a>
+                    <a class="nav-link btn-upload">Subir nuevo</a>
                 </li>
             </ul>
         </div>
