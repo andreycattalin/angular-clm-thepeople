@@ -1,0 +1,11 @@
+@import "../../styles";
+.footer {
+    a {
+        color: $cBlueDark;
+        text-decoration: none;
+        padding: 10px 20px;
+        &:hover {
+            color: $cOrange;
+        }
+    }
+}
