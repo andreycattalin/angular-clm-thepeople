@@ -1,0 +1,30 @@
+@import "../../styles";
+.main-box {
+    position: relative;
+    padding-top: 50px;
+    .main-image {
+        width: 65%;
+        height: calc(100vh - 250px);
+        min-height: 550px;
+        max-height: 800px;
+        background: url('../../assets/images/main1@2x.png') center center no-repeat;
+        background-size: cover;
+        position: absolute;
+        right: 0px;
+        border-radius: 29px;
+    }
+    .box-left {
+        position: absolute;
+        display: block;
+        z-index: 9;
+        width: 35%;
+        h1 {
+            font-weight: bold;
+            font-size: 60px;
+            line-height: 59px;
+            span {
+                color: $cOrange;
+            }
+        }
+    }
+}
