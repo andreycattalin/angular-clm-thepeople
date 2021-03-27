@@ -2,6 +2,7 @@
 .main-box {
     position: relative;
     padding-top: 50px;
+    display: flow-root;
     .main-image {
         width: 65%;
         height: calc(100vh - 250px);
@@ -9,8 +10,7 @@
         max-height: 800px;
         background: url('../../assets/images/main1@2x.png') center center no-repeat;
         background-size: cover;
-        position: absolute;
-        right: 0px;
+        float: right;
         border-radius: 29px;
     }
     .box-left {
