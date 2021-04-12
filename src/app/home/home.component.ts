@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +8,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+
   }
 
   search(searchValue: string){
-    this.router.navigate(["/search"], { queryParams: { name: searchValue}})
+    if(searchValue == "") {
+      this.router.navigate(["/search"])
+    } else {
+      this.router.navigate(["/search"], { queryParams: { name: searchValue}})
+    }
   }
 
 }

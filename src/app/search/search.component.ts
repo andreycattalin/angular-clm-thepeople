@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Person } from '../models/person.model';
 
 @Component({
@@ -10,17 +10,33 @@ import { Person } from '../models/person.model';
 export class SearchComponent implements OnInit {
 
   allPersons: Array<Person> = []
-  name: string = ""
+  nameSearch: string = ""
+  dateStartSearch: string = ""
+  dateEndSearch: string = ""
 
-  constructor(private activeRoute: ActivatedRoute) { }
+  constructor(private activeRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
 
     this.activeRoute.queryParams.subscribe( value => {
-      this.name = value.name
+      if(value.name != undefined) {
+        this.nameSearch = value.name
+      }
     })
 
     this.loadData()
+  }
+
+
+  startChange(data: any) {
+    this.dateStartSearch = data.value
+  }
+
+  endChange(data: any) {
+    if(data.value != null) {
+      this.dateEndSearch = data.value
+      this.router.navigate(["/search"], { queryParams: { name: this.nameSearch, start: this.dateStartSearch, end: this.dateEndSearch }})
+    }
   }
 
   loadData() {

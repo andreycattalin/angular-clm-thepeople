@@ -1,5 +1,27 @@
 <div class="head-box">
-    <p>{{name}}</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nombre o apellido</mat-label>
+                    <input matInput placeholder="Nombre o apellido" [value]="nameSearch">
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="fill">
+                    <mat-label>Rango de fechas</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate (dateChange)="startChange($event)" placeholder="Inicio">
+                        <input matEndDate (dateChange)="endChange($event)" placeholder="Fin">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="container">

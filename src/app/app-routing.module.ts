@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: "search", component: SearchComponent },
   { path: "detail", component: DetailComponent },
   { path: "404", component: NotFoundComponent },
-  { path: "**", redirectTo: "/404" },
+  // { path: "**", redirectTo: "/404" },
 ];
 
 @NgModule({
