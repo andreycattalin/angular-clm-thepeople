@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Person } from '../models/person.model';
 
 @Component({
@@ -9,10 +10,16 @@ import { Person } from '../models/person.model';
 export class SearchComponent implements OnInit {
 
   allPersons: Array<Person> = []
+  name: string = ""
 
-  constructor() { }
+  constructor(private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.activeRoute.queryParams.subscribe( value => {
+      this.name = value.name
+    })
+
     this.loadData()
   }
 
