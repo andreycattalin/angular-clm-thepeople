@@ -1,0 +1,47 @@
+.head-box {
+    background: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.431968);
+    padding: 30px 0;
+    box-shadow: 0px 2px 6px rgba(103, 99, 139, 0.120674);
+}
+
+.box-card {
+    padding: 10px;
+    display: flow-root;
+    position: relative;
+    .box-data {
+        background: #FFFFFF;
+        box-shadow: 0px 2px 18px rgba(73, 73, 98, 0.170325);
+        border-radius: 8px;
+        padding: 15px;
+        margin: 0 10px;
+        h2 {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000000;
+            margin-top: 20px;
+        }
+        .date {
+            font-size: 14px;
+            line-height: 16px;
+            color: #000000;
+        }
+        .ptag {
+            background: #000000;
+            border-radius: 18.5px;
+            color: white;
+            padding: 5px 13px;
+            display: inline-block;
+            margin: 0;
+        }
+    }
+    .box-img {
+        background-position: center center;
+        background-size: cover;
+        height: 200px;
+        border-radius: 8px;
+        position: relative;
+        margin-bottom: -16px;
+    }
+}

@@ -1,4 +1,22 @@
-<p>
-    search works!
-</p>
-<h1>Hola</h1>
+<div class="head-box">
+
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+        <div *ngFor="let item of allPersons" class="col-sm-6 col-md-4 col-lg-3">
+            <div class="box-card">
+                <div class="box-img" [ngStyle]="{'background-image': 'url('+ item.photo +')' }"></div>
+                <div class="box-data">
+                    <h2>{{item.name}}</h2>
+                    <p class="date">{{item.birthdate}}</p>
+                    <p class="ptag">{{item.job}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
