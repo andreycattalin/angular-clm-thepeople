@@ -1,3 +1,4 @@
+@import "../../styles";
 .head-box {
     background: #FFFFFF;
     border: 1px solid rgba(255, 255, 255, 0.431968);
@@ -8,14 +9,30 @@
 .box-card {
     padding: 10px;
     display: flow-root;
+    text-decoration: none;
     position: relative;
+    transition: all .3s ease;
+    &:hover {
+        padding-top: 5px;
+        .box-data {
+            box-shadow: 0px 2px 18px rgba(73, 73, 98, 0.4);
+            h2 {
+                color: $cOrange;
+            }
+        }
+        .box-img {
+            margin-bottom: -21px;
+        }
+    }
     .box-data {
+        transition: all .3s ease;
         background: #FFFFFF;
         box-shadow: 0px 2px 18px rgba(73, 73, 98, 0.170325);
         border-radius: 8px;
         padding: 15px;
         margin: 0 10px;
         h2 {
+            transition: all .3s ease;
             font-weight: 500;
             font-size: 24px;
             line-height: 28px;
@@ -34,9 +51,11 @@
             padding: 5px 13px;
             display: inline-block;
             margin: 0;
+            font-size: 14px;
         }
     }
     .box-img {
+        transition: all .2s ease;
         background-position: center center;
         background-size: cover;
         height: 200px;
