@@ -6,7 +6,7 @@
             <h1>Descubre<br>perfiles de<br><span>famosos</span></h1>
 
             <div class="box-input">
-                <input #name type="text" placeholder="Busca por nombre o apellido">
+                <input #name type="text" placeholder="Busca por nombre o apellido" (keydown.enter)="search(name.value)">
                 <button type="button" class="btn btn-search" (click)="search(name.value)"><img src="assets/images/ic_search.svg" alt="buscar"></button>
             </div>
         </div>
