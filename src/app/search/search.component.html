@@ -29,7 +29,7 @@
     <div class="row">
 
         <div *ngFor="let item of allPersons" class="col-sm-6 col-md-4 col-lg-3">
-            <a [routerLink]="['/detail']" routerLinkActive="router-link-active" class="box-card">
+            <a [routerLink]="['/detail/' + item._id]" routerLinkActive="router-link-active" class="box-card">
                 <div class="box-img" [ngStyle]="{'background-image': 'url('+ item.photo +')' }"></div>
                 <div class="box-data">
                     <h2>{{item.name}}</h2>
