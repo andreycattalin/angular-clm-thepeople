@@ -1,17 +1,26 @@
 <div class="login-box">
     <div class="form-signin">
-        <form>
+        <form [formGroup]="mForm" (ngSubmit)="onSubmit()">
             <img class="mb-4" src="assets/images/thepeople.svg" alt="">
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Correo electrónico">
+                <input type="email" class="form-control" id="floatingInput" placeholder="Correo electrónico" formControlName="email" [ngClass]="{'is-invalid': isSent && f.email.errors}">
                 <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" formControlName="password" [ngClass]="{'is-invalid': isSent && f.password.errors}">
                 <label for="floatingPassword">Contraseña</label>
             </div>
             <a href="">¿Has olvidado la contraseña?</a>
+
+            <div class="form-floating">
+                <div class="alert alert-danger" role="alert" *ngIf="isSent && f.email.errors">
+                    El email no es válido
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="isSent && f.password.errors">
+                    La constraseña no es válida
+                </div>
+            </div>
 
             <button class="w-100 btn btn-lg btn-primary" type="submit">Entrar</button>
         </form>
