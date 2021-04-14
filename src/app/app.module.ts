@@ -18,7 +18,9 @@ import {MatInputModule} from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PeopleListComponent } from './dashboard/people-list/people-list.component';
+import { PeopleDetailComponent } from './dashboard/people-detail/people-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       DetailComponent,
       NotFoundComponent,
       LoginComponent,
-      RegisterComponent
+      RegisterComponent,
+      DashboardComponent,
+      PeopleListComponent,
+      PeopleDetailComponent
    ],
   imports: [
     BrowserModule,

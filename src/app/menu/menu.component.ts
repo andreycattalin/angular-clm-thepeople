@@ -26,4 +26,11 @@ export class MenuComponent implements OnInit {
     })
   }
 
+  // He añadido esto porque cuando volvias atras
+  // desde el componente de login se ponía transparente el fondo
+  ngAfterContentInit() {
+   this.bgWhite = true
+  }
+
+
 }
