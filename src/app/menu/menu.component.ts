@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -10,13 +11,13 @@ export class MenuComponent implements OnInit {
 
   bgWhite = false
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.router.events.subscribe( route => {
+    this.router.events.subscribe(route => {
 
-      if(route instanceof NavigationEnd) {
-        if(route.url == "/") {
+      if (route instanceof NavigationEnd) {
+        if (route.url == "/") {
           this.bgWhite = false
         } else {
           this.bgWhite = true
@@ -25,11 +26,23 @@ export class MenuComponent implements OnInit {
 
     })
   }
+  //Cuando pulsemos en SUBIR NUEVO comprobar si estoy logueado:
+
+  //Si estoy logueado iremos a subir nuevo
+  //Si no estoy logueado iremos al login
 
   // He añadido esto porque cuando volvias atras
   // desde el componente de login se ponía transparente el fondo
   ngAfterContentInit() {
-   this.bgWhite = true
+    this.bgWhite = true
+  }
+
+  upload() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(["dashboard/people/new"])
+    } else {
+      this.router.navigate(["/login"])
+    }
   }
 
 

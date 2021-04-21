@@ -17,10 +17,9 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.router.events.subscribe( route => {
-
-      if(route instanceof NavigationEnd) {
-        if(route.url == "/login" || route.url == "/register" || route.url.includes("dashboard")) {
+    this.router.events.subscribe(route => {
+      if (route instanceof NavigationEnd) {
+        if (route.url == "/login" || route.url == "/register" || route.url.includes("dashboard")) {
           this.isLogin = true
         } else {
           this.isLogin = false

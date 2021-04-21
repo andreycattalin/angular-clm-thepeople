@@ -1,3 +1,5 @@
+import { UserService } from './../services/user.service';
+import { Login } from './../models/login.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +14,7 @@ export class RegisterComponent implements OnInit {
   mForm: FormGroup
   isSent = false
 
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
 
     this.mForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -20,7 +22,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{4,30}$/)]]
     })
 
-   }
+  }
 
   ngOnInit() {
   }
@@ -39,15 +41,20 @@ export class RegisterComponent implements OnInit {
 
     console.log("Enviar form");
 
-    if(this.mForm.invalid) {
+    if (this.mForm.invalid) {
       return
     }
 
-    console.log("Login valido", this.mForm.value);
-    // Atacar a localhost:3001/api/register
-
-    // api dice 200??
-    this.router.navigate(["/dashbaord"])
+    const login: Login = new Login()
+    login.email = this.f.email.value
+    login.password = this.f.password.value
+    this.userService.register(login).subscribe((data: any) => {
+      this.router.navigate(["/login"])
+    },
+      error => {
+        console.log("Error:", error);
+      }
+    );
 
   }
 

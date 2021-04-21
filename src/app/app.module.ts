@@ -12,30 +12,34 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PeopleListComponent } from './dashboard/people-list/people-list.component';
 import { PeopleDetailComponent } from './dashboard/people-detail/people-detail.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './services/interceptors/auth-interceptor.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
 @NgModule({
   declarations: [
     AppComponent,
-      MenuComponent,
-      FooterComponent,
-      HomeComponent,
-      SearchComponent,
-      DetailComponent,
-      NotFoundComponent,
-      LoginComponent,
-      RegisterComponent,
-      DashboardComponent,
-      PeopleListComponent,
-      PeopleDetailComponent
-   ],
+    MenuComponent,
+    FooterComponent,
+    HomeComponent,
+    SearchComponent,
+    DetailComponent,
+    NotFoundComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent,
+    PeopleListComponent,
+    PeopleDetailComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -45,10 +49,16 @@ import { PeopleDetailComponent } from './dashboard/people-detail/people-detail.c
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'es-ES'},
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService
+
   ],
   bootstrap: [AppComponent]
 })

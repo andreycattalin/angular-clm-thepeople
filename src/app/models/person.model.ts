@@ -1,8 +1,9 @@
 export class Person {
-  bio?:       string;
+  biography?:       string;
   name?:      string;
-  photo?:     string;
-  birthdate?: string;
+  surname?:   string;
+  picture?:     string;
+  birthday?: string;
   job?:       string;
   _id?:        string;
 }
