@@ -17,7 +17,7 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let item of allPersons">
-                        <td>{{ item.name }}</td>
+                        <td>{{ item.name }} {{ item.surname }}</td>
                         <td>
                             <button type="button" class="btn btn-success" (click)="editPerson(item._id)">Editar</button>
                             <button type="button" class="btn btn-danger">Eliminar</button>

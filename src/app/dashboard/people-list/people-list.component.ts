@@ -1,3 +1,4 @@
+import { PeopleService } from './../../services/people.service';
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person.model';
 import * as moment from 'moment';
@@ -12,7 +13,7 @@ export class PeopleListComponent implements OnInit {
 
   allPersons: Array<Person> = []
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: PeopleService) {
     this.loadData()
    }
 
@@ -32,9 +33,17 @@ export class PeopleListComponent implements OnInit {
     localStorage.removeItem("token")
     this.router.navigate(["/"])
   }
-
   loadData() {
-    this.allPersons =[] //data //que llegara de service
+
+    this.service.getPeople("","","").subscribe((data) => {
+        console.log(data)
+        this.allPersons = data
+      },
+        error => {
+          console.log("Error:", error);
+        }
+      );
   }
+
 
 }

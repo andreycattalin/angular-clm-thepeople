@@ -22,7 +22,6 @@ export class PeopleService {
       );
   }
 
-
   savePeople(person: Person): Observable<any> {
     return this.httpClient.post(`${environment.apiUrl}/profile`, person).pipe(
       catchError(error => {
@@ -40,7 +39,7 @@ export class PeopleService {
     );
   }
 
-  updatePeoplee(person: Person): Observable<any> {
+  updatePeople(person: Person): Observable<any> {
     return this.httpClient.put(`${environment.apiUrl}/profile/${person._id}`, person).pipe(
       catchError(error => {
         return error;

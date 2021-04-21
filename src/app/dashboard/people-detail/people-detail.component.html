@@ -4,27 +4,32 @@
         <div class="col">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1">
+                <input type="text" class="form-control" id="exampleFormControlInput1" [(ngModel)]="person.name">
             </div>
+
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="exampleFormControlInput7" [(ngModel)]="person.surname">
+          </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput0" class="form-label">Imagen</label>
-                <input type="text" class="form-control" id="exampleFormControlInput0" placeholder="https://...">
+                <input type="text" class="form-control" id="exampleFormControlInput0" placeholder="https://..." [(ngModel)]="person.picture">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput2" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="exampleFormControlInput2">
+                <input type="date" class="form-control" id="exampleFormControlInput2" [(ngModel)] = "person.birthday">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput3" class="form-label">Profesion</label>
-                <input type="text" class="form-control" id="exampleFormControlInput3">
+                <input type="text" class="form-control" id="exampleFormControlInput3" [(ngModel)]="person.job">
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlTextarea4" class="form-label">Bio</label>
-                <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea4" rows="3" [(ngModel)]="person.biography"></textarea>
             </div>
 
-            <button type="submit" *ngIf="isEditMode" class="btn btn-primary mb-3">Actualizar</button>
-            <button type="submit" *ngIf="!isEditMode" class="btn btn-primary mb-3">Guardar</button>
+            <button type="submit" *ngIf="isEditMode" (click)="editPerson()" class="btn btn-primary mb-3">Actualizar</button>
+            <button type="submit" *ngIf="!isEditMode" (click)="createPerson()" class="btn btn-primary mb-3">Guardar</button>
 
         </div>
     </div>
