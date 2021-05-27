@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000"
+  apiUrl: "http://localhost:3000" //https://aluengo-thepeople.herokuapp.com  // http://localhost:3000
 };
 
 /*

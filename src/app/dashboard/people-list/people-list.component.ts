@@ -28,6 +28,17 @@ export class PeopleListComponent implements OnInit {
     this.router.navigate(["dashboard/people/"+id+"/edit"])
   }
 
+  deletePerson(id: any) {
+    this.service.deletePeople(id).subscribe((data) => {
+      this.loadData()
+    },
+      error => {
+        console.log("Error:", error);
+      }
+    );
+  }
+
+
   logout(){
     //PEDIR CONFIRMACION DEL LOGOUT
     localStorage.removeItem("token")

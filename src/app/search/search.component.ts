@@ -70,9 +70,7 @@ export class SearchComponent implements OnInit {
       end = ""
     }
 
-    this.service.getPeople(this.nameSearch,
-      start,
-      end).subscribe((data) => {
+    this.service.getPeople(this.nameSearch,start,end).subscribe((data) => {
         console.log(data)
         this.allPersons = data
       },

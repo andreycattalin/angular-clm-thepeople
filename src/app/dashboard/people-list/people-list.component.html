@@ -1,32 +1,32 @@
 <div class="container mt-4">
-    <div class="row justify-content-end">
-        <div class="col-2">
-            <button type="button" (click)="addNew()" class="btn btn-primary">Añadir nuevo</button>
-            <button type="button" (click)="logout()" class="btn btn-primary">Cerrar sesión</button>
-        </div>
+  <div class="row justify-content-end">
+    <div class="col-2">
+      <button type="button" (click)="addNew()" class="btn btn-primary">Añadir nuevo</button>
+      <button type="button" (click)="logout()" class="btn btn-primary">Cerrar sesión</button>
     </div>
-    <div class="row">
+  </div>
+  <div class="row">
 
-        <div class="col">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of allPersons">
-                        <td>{{ item.name }} {{ item.surname }}</td>
-                        <td>
-                            <button type="button" class="btn btn-success" (click)="editPerson(item._id)">Editar</button>
-                            <button type="button" class="btn btn-danger">Eliminar</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
+    <div class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of allPersons">
+            <td>{{ item.name }} {{ item.surname }}</td>
+            <td>
+              <button type="button" class="btn btn-success" (click)="editPerson(item._id)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="deletePerson(item._id)">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
+
+  </div>
 </div>
